@@ -1,19 +1,28 @@
-require "set"
-require "rbtree"
-require "ac-library-rb/dsu"
-require "ac-library-rb/segtree"
-require "ac-library-rb/priority_queue"
-require "ac-library-rb/fenwick_tree"
-include AcLibraryRb
+# D
+# 桁DP(下から)
 
-# MOD = 998244353
-MOD = 10 ** 9 + 7
-INF = 1 << 60
+gets.to_i.times do
+  digits = gets.to_i.digits
 
-def bsearch(ng, ok, &block)
-  while (ok - ng).abs > 1
-    mid = (ok + ng) / 2
-    block[mid] ? ok = mid : ng = mid
+  # dp0: 下の桁から計算してきて、次の桁へ繰り上がりを「しない」場合の最小枚数
+  # dp1: 下の桁から計算してきて、次の桁へ繰り上がりを「する」場合の最小枚数
+  dp0 = 0
+  dp1 = 1 << 60
+
+  # 下の桁（文字列の後ろ）から1桁ずつ処理する
+  digits.each do |d|
+
+    # [そのまま支払う場合, 繰り上がってきた分を含めて支払う場合]
+    next_dp0 = [dp0 + d, dp1 + d + 1].min
+
+    # [お釣りをもらって繰り上げる場合, 繰り上がってきた分を含めてお釣りをもらって繰り上げる場合]
+    next_dp1 = [dp0 + 10 - d, dp1 + 10 - (d + 1)].min
+
+    dp0 = next_dp0
+    dp1 = next_dp1
   end
-  ok
+
+  # 最後の桁まで終わった後、
+  # 繰り上がりなし(dp0) と、一番上の桁で1枚多く支払う(dp1 + 1) の小さい方が答え
+  puts [dp0, dp1 + 1].min
 end
