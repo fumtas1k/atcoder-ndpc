@@ -10,28 +10,28 @@ AtCoderの「Next generation Dynamic Programming Contest」用のRuby開発環�
 
 ## 問題一覧
 
-| # | 問題 | 解答コード |
-| :--- | :--- | :--- |
-| A | [Frog 1](https://atcoder.jp/contests/dp/tasks/dp_a) | [未解答](./a/main.rb) |
-| B | [Frog 2](https://atcoder.jp/contests/dp/tasks/dp_b) | [未解答](./b/main.rb) |
-| C | [Vacation](https://atcoder.jp/contests/dp/tasks/dp_c) | [未解答](./c/main.rb) |
-| D | [Knapsack 1](https://atcoder.jp/contests/dp/tasks/dp_d) | [未解答](./d/main.rb) |
-| E | [Knapsack 2](https://atcoder.jp/contests/dp/tasks/dp_e) | [未解答](./e/main.rb) |
-| F | [LCS](https://atcoder.jp/contests/dp/tasks/dp_f) | [未解答](./f/main.rb) |
-| G | [Longest Path](https://atcoder.jp/contests/dp/tasks/dp_g) | [未解答](./g/main.rb) |
-| H | [Grid 1](https://atcoder.jp/contests/dp/tasks/dp_h) | [未解答](./h/main.rb) |
-| I | [Coins](https://atcoder.jp/contests/dp/tasks/dp_i) | [未解答](./i/main.rb) |
-| J | [Sushi](https://atcoder.jp/contests/dp/tasks/dp_j) | [未解答](./j/main.rb) |
-| K | [Stones](https://atcoder.jp/contests/dp/tasks/dp_k) | [未解答](./k/main.rb) |
-| L | [Deque](https://atcoder.jp/contests/dp/tasks/dp_l) | [未解答](./l/main.rb) |
-| M | [Candies](https://atcoder.jp/contests/dp/tasks/dp_m) | [未解答](./m/main.rb) |
-| N | [Slimes](https://atcoder.jp/contests/dp/tasks/dp_n) | [未解答](./n/main.rb) |
-| O | [Matching](https://atcoder.jp/contests/dp/tasks/dp_o) | [未解答](./o/main.rb) |
-| P | [Independent Set](https://atcoder.jp/contests/dp/tasks/dp_p) | [未解答](./p/main.rb) |
-| Q | [Flowers](https://atcoder.jp/contests/dp/tasks/dp_q) | [未解答](./q/main.rb) |
-| R | [Walk](https://atcoder.jp/contests/dp/tasks/dp_r) | [未解答](./r/main.rb) |
-| S | [Digit Sum](https://atcoder.jp/contests/dp/tasks/dp_s) | [未解答](./s/main.rb) |
-| T | [Permutation](https://atcoder.jp/contests/dp/tasks/dp_t) | [未解答](./t/main.rb) |
+| # | 問題 | アルゴリズム | 解答コード |
+| :--- | :--- | :--- | :--- |
+| A | [Frog 1](https://atcoder.jp/contests/dp/tasks/dp_a) | 末尾分解, 境界状態圧縮 | [解答済](./a/main.rb) |
+| B | [Frog 2](https://atcoder.jp/contests/dp/tasks/dp_b) | - | [未解答](./b/main.rb) |
+| C | [Vacation](https://atcoder.jp/contests/dp/tasks/dp_c) | - | [未解答](./c/main.rb) |
+| D | [Knapsack 1](https://atcoder.jp/contests/dp/tasks/dp_d) | - | [未解答](./d/main.rb) |
+| E | [Knapsack 2](https://atcoder.jp/contests/dp/tasks/dp_e) | - | [未解答](./e/main.rb) |
+| F | [LCS](https://atcoder.jp/contests/dp/tasks/dp_f) | - | [未解答](./f/main.rb) |
+| G | [Longest Path](https://atcoder.jp/contests/dp/tasks/dp_g) | - | [未解答](./g/main.rb) |
+| H | [Grid 1](https://atcoder.jp/contests/dp/tasks/dp_h) | - | [未解答](./h/main.rb) |
+| I | [Coins](https://atcoder.jp/contests/dp/tasks/dp_i) | - | [未解答](./i/main.rb) |
+| J | [Sushi](https://atcoder.jp/contests/dp/tasks/dp_j) | - | [未解答](./j/main.rb) |
+| K | [Stones](https://atcoder.jp/contests/dp/tasks/dp_k) | - | [未解答](./k/main.rb) |
+| L | [Deque](https://atcoder.jp/contests/dp/tasks/dp_l) | - | [未解答](./l/main.rb) |
+| M | [Candies](https://atcoder.jp/contests/dp/tasks/dp_m) | - | [未解答](./m/main.rb) |
+| N | [Slimes](https://atcoder.jp/contests/dp/tasks/dp_n) | - | [未解答](./n/main.rb) |
+| O | [Matching](https://atcoder.jp/contests/dp/tasks/dp_o) | - | [未解答](./o/main.rb) |
+| P | [Independent Set](https://atcoder.jp/contests/dp/tasks/dp_p) | - | [未解答](./p/main.rb) |
+| Q | [Flowers](https://atcoder.jp/contests/dp/tasks/dp_q) | - | [未解答](./q/main.rb) |
+| R | [Walk](https://atcoder.jp/contests/dp/tasks/dp_r) | - | [未解答](./r/main.rb) |
+| S | [Digit Sum](https://atcoder.jp/contests/dp/tasks/dp_s) | - | [未解答](./s/main.rb) |
+| T | [Permutation](https://atcoder.jp/contests/dp/tasks/dp_t) | - | [未解答](./t/main.rb) |
 
 ## セットアップ
 
