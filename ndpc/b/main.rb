@@ -1,19 +1,39 @@
-require "set"
-require "rbtree"
-require "ac-library-rb/dsu"
-require "ac-library-rb/segtree"
-require "ac-library-rb/priority_queue"
-require "ac-library-rb/fenwick_tree"
-include AcLibraryRb
+# B
+# トポロジカルソート
+# 経路数え上げ
 
-# MOD = 998244353
-MOD = 10 ** 9 + 7
-INF = 1 << 60
+MOD = 998244353
 
-def bsearch(ng, ok, &block)
-  while (ok - ng).abs > 1
-    mid = (ok + ng) / 2
-    block[mid] ? ok = mid : ng = mid
+gets.to_i.times do
+  n, m = gets.split.map(&:to_i)
+
+  graph = Array.new(n) { [] }
+  # in-degree（入次数）
+  indeg = [0] * n
+
+  m.times do
+    u, v = gets.split.map(&:to_i).map(&:pred)
+    graph[u] << v
+    indeg[v] += 1
   end
-  ok
+
+  # トポロジカルソート
+  deque = n.times.filter { indeg[it].zero? }
+
+  dp = [0] * n
+  dp[0] = 1
+
+  until deque.empty?
+    u = deque.shift
+
+    graph[u].each do |v|
+      dp[v] += dp[u]
+      dp[v] %= MOD
+
+      indeg[v] -= 1
+      deque << v if indeg[v].zero?
+    end
+  end
+
+  puts dp[-1]
 end

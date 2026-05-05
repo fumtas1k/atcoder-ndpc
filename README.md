@@ -45,8 +45,8 @@ npx acc config default-test-command "uv run oj t -c 'ruby main.rb'"
 
 | # | 問題 | アルゴリズム | 解答コード |
 | :--- | :--- | :--- | :--- |
-| A | [Polyomino](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_a) | - | [解答済](./ndpc/a/main.rb) |
-| B | [DAG](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_b) | - | [未解答](./ndpc/b/main.rb) |
+| A | [Polyomino](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_a) | 末尾分解, 境界状態圧縮 | [解答済](./ndpc/a/main.rb) |
+| B | [DAG](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_b) | トポロジカルソート, 経路数え上げ | [解答済](./ndpc/b/main.rb) |
 | C | [String](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_c) | - | [未解答](./ndpc/c/main.rb) |
 | D | [Banknote](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_d) | - | [未解答](./ndpc/d/main.rb) |
 | E | [Summer Vacation](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_e) | - | [未解答](./ndpc/e/main.rb) |
