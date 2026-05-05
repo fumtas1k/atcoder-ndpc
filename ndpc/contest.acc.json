@@ -11,7 +11,7 @@
       "title": "Polyomino",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_a",
       "directory": {
-        "path": "ndpc/a",
+        "path": "a",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -22,7 +22,7 @@
       "title": "DAG",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_b",
       "directory": {
-        "path": "ndpc/b",
+        "path": "b",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -33,7 +33,7 @@
       "title": "String",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_c",
       "directory": {
-        "path": "ndpc/c",
+        "path": "c",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -44,7 +44,7 @@
       "title": "Banknote",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_d",
       "directory": {
-        "path": "ndpc/d",
+        "path": "d",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -55,7 +55,7 @@
       "title": "Summer Vacation",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_e",
       "directory": {
-        "path": "ndpc/e",
+        "path": "e",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -66,7 +66,7 @@
       "title": "Set",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_f",
       "directory": {
-        "path": "ndpc/f",
+        "path": "f",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -77,7 +77,7 @@
       "title": "Mouth",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_g",
       "directory": {
-        "path": "ndpc/g",
+        "path": "g",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -88,7 +88,7 @@
       "title": "Coin",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_h",
       "directory": {
-        "path": "ndpc/h",
+        "path": "h",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -99,7 +99,7 @@
       "title": "Update Positions",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_i",
       "directory": {
-        "path": "ndpc/i",
+        "path": "i",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -110,7 +110,7 @@
       "title": "Number and Total",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_j",
       "directory": {
-        "path": "ndpc/j",
+        "path": "j",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -121,7 +121,7 @@
       "title": "Addition and Subtraction",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_k",
       "directory": {
-        "path": "ndpc/k",
+        "path": "k",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -132,7 +132,7 @@
       "title": "LCM",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_l",
       "directory": {
-        "path": "ndpc/l",
+        "path": "l",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -143,7 +143,7 @@
       "title": "Numeral",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_m",
       "directory": {
-        "path": "ndpc/m",
+        "path": "m",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -154,7 +154,7 @@
       "title": "Knapsack",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_n",
       "directory": {
-        "path": "ndpc/n",
+        "path": "n",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -165,7 +165,7 @@
       "title": "Game",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_o",
       "directory": {
-        "path": "ndpc/o",
+        "path": "o",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -176,7 +176,7 @@
       "title": "LIS",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_p",
       "directory": {
-        "path": "ndpc/p",
+        "path": "p",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -187,7 +187,7 @@
       "title": "Union of Intervals",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_q",
       "directory": {
-        "path": "ndpc/q",
+        "path": "q",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -198,7 +198,7 @@
       "title": "Triples",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_r",
       "directory": {
-        "path": "ndpc/r",
+        "path": "r",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -209,7 +209,7 @@
       "title": "Two doors",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_s",
       "directory": {
-        "path": "ndpc/s",
+        "path": "s",
         "testdir": "tests",
         "submit": "main.rb"
       }
@@ -220,7 +220,7 @@
       "title": "Independent Set",
       "url": "https://atcoder.jp/contests/ndpc/tasks/ndpc2026_t",
       "directory": {
-        "path": "ndpc/t",
+        "path": "t",
         "testdir": "tests",
         "submit": "main.rb"
       }
