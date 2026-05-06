@@ -4,7 +4,7 @@
   "description": "AtCoderの「Next generation Dynamic Programming Contest」用のRuby開発環境です。",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "sh -c 'cd \"$INIT_CWD\" && uv run oj t -c \"ruby main.rb\" -d tests'"
   },
   "repository": {
     "type": "git",
