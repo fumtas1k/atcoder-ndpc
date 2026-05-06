@@ -38,7 +38,7 @@ uv run oj <command>
 ### 連携設定の推奨
 `acc` で `oj` を自動的に呼び出すように設定しておくと便利です。
 ```bash
-npx acc config default-test-command "uv run oj t -c 'ruby main.rb'"
+npx acc config default-test-command "uv run oj t -c 'ruby main.rb' -d tests"
 ```
 
 ## 問題一覧
