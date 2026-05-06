@@ -25,20 +25,26 @@ npm install
 
 ## ツール
 
-リポジトリ内のツールを使用する場合は、以下のコマンドを利用してください。
+リポジトリ内のツールを使用する場合は、`npx` または `uv run` を介して実行します。これらはローカルにインストールされているため、グローバルな環境を汚さずに利用可能です。
 
 ```bash
-# atcoder-cli (acc)
+# atcoder-cli (acc) の使用
 npx acc <command>
 
-# online-judge-tools (oj)
+# online-judge-tools (oj) の使用
 uv run oj <command>
 ```
 
-### 連携設定の推奨
-`acc` で `oj` を自動的に呼び出すように設定しておくと便利です。
+## テストの実行
+
+テストは、**各問題のディレクトリ（例: `ndpc/a/`）に移動してから**実行してください。特別な設定なしで、以下のコマンドでサンプルのテストが可能です。
+
 ```bash
-npx acc config default-test-command "uv run oj t -c 'ruby main.rb' -d tests"
+# 問題ディレクトリへ移動
+cd ndpc/a
+
+# テスト実行
+uv run oj t -c "ruby main.rb" -d tests
 ```
 
 ## 問題一覧
