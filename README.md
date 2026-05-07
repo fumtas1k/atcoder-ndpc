@@ -58,7 +58,7 @@ uv run oj t -c "ruby main.rb" -d tests
 | B | [DAG](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_b) | トポロジカルソート, 経路数え上げ | [解答済](./ndpc/b/main.rb) |
 | C | [String](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_c) | 決定性有限オートマトン（DFA）の直積上でのDP | [解答済](./ndpc/c/main.rb) |
 | D | [Banknote](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_d) | 桁DP(下から) | [解答済](./ndpc/d/main.rb) |
-| E | [Summer Vacation](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_e) | - | [未解答](./ndpc/e/main.rb) |
+| E | [Summer Vacation](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_e) | 貪欲法, ダブリング | [解答済](./ndpc/e/main.rb) |
 | F | [Set](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_f) | - | [未解答](./ndpc/f/main.rb) |
 | G | [Mouth](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_g) | - | [未解答](./ndpc/g/main.rb) |
 | H | [Coin](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_h) | - | [未解答](./ndpc/h/main.rb) |
