@@ -8,3 +8,8 @@ dependencies = [
     "online-judge-tools>=11.5.1",
     "setuptools>=82.0.1",
 ]
+
+[dependency-groups]
+dev = [
+    "isort>=8.0.1",
+]
