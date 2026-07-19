@@ -1,37 +1,27 @@
-require "set"
-require "rbtree"
-require "ac-library-rb/dsu"
-require "ac-library-rb/segtree"
-require "ac-library-rb/priority_queue"
-require "ac-library-rb/fenwick_tree"
-include AcLibraryRb
+# S
 
-# 指定された座標がグリッド（二次元配列）の範囲内に収まっているかを判定します。
-#
-# @param r [Integer] 行番号（Row index）
-# @param c [Integer] 列番号（Column index）
-# @param h [Integer] グリッドの高さ（総行数 / Height）
-# @param w [Integer] グリッドの幅（総列数 / Width）
-# @return [Boolean] 範囲内であれば `true`、範囲外であれば `false`
-def inside?(r, c, h, w)
-  0 <= r && r < h && 0 <= c && c < w
-end
+M = 10 ** 9 + 7
+K = gets.chomp.chars.map(&:to_i)
+D = gets.to_i
 
-# 条件を満たす境界値を二分探索（バイナリサーチ）によって求めます。
-#
-# @param ng [Integer] 条件を満たさない（または満たす）探索の開始点の一方
-# @param ok [Integer] 条件を満たす（または満たさない）探索の開始点の他方
-# @yieldparam mid [Integer] 現在探索中の判定対象となる中央値
-# @yieldreturn [Boolean] `mid` が条件を満たしている（`ok` 側に属する）場合は `true`、満たしていない（`ng` 側に属する）場合は `false`
-# @return [Integer] 条件を満たす（または満たさない）境界の `ok` 側の値
-def bsearch(ng, ok)
-  while (ok - ng).abs > 1
-    mid = (ok + ng) / 2
-    yield(mid) ? ok = mid : ng = mid
+# dp[上からの桁数: i][Kより小さいか][i桁目までの総和をDで割った余り]
+dp = Array.new(K.size + 1) { Array.new(2) { [0] * (D + 1) } }
+dp[0][0][0] = 1
+
+K.each_with_index do |k, i|
+  D.times do |d|
+    dp[i + 1][0][(d + k) % D] += dp[i][0][d]
+    dp[i + 1][0][(d + k) % D] %= M
+
+    10.times do |j|
+      if j < k
+        dp[i + 1][1][(d + j) % D] += dp[i][0][d]
+      end
+      dp[i + 1][1][(d + j) % D] += dp[i][1][d]
+      dp[i + 1][1][(d + j) % D] %= M
+    end
   end
-  ok
 end
 
-# MOD = 998244353
-MOD = 10 ** 9 + 7
-INF = 1 << 60
+# 答えに0が含まれるので除去
+puts (dp[-1].sum(&:first) - 1 + M) % M

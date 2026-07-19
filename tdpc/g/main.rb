@@ -1,37 +1,49 @@
-require "set"
-require "rbtree"
-require "ac-library-rb/dsu"
-require "ac-library-rb/segtree"
-require "ac-library-rb/priority_queue"
-require "ac-library-rb/fenwick_tree"
-include AcLibraryRb
+# G
+# 1問TLEする
 
-# 指定された座標がグリッド（二次元配列）の範囲内に収まっているかを判定します。
-#
-# @param r [Integer] 行番号（Row index）
-# @param c [Integer] 列番号（Column index）
-# @param h [Integer] グリッドの高さ（総行数 / Height）
-# @param w [Integer] グリッドの幅（総列数 / Width）
-# @return [Boolean] 範囲内であれば `true`、範囲外であれば `false`
-def inside?(r, c, h, w)
-  0 <= r && r < h && 0 <= c && c < w
+S = gets.chomp.chars
+N = S.size
+K = gets.to_i
+
+# dp[i][j] := i文字目以降について("a".ord + j).chrから始まる部分文字列の個数
+dp = Array.new(N) { [0] * 26 }
+row_sum = dp[N - 1][S[N - 1].ord - "a".ord] = 1
+
+# nex[i][j] := i文字目以降で、最初に("a".ord + j).chrの文字が現れるインデックス
+nex = Array.new(N) { [N] * 26 }
+nex[N - 1][S[N - 1].ord - "a".ord] = N - 1
+
+(N - 2).downto(0) do |i|
+  dp[i] = dp[i + 1].dup
+  j = S[i].ord - "a".ord
+  # + 1 は、c文字のみの場合
+  dp[i][j] = row_sum + 1
+  row_sum += dp[i][j] - dp[i + 1][j]
+
+  nex[i] = nex[i + 1].dup
+  nex[i][j] = i
 end
 
-# 条件を満たす境界値を二分探索（バイナリサーチ）によって求めます。
-#
-# @param ng [Integer] 条件を満たさない（または満たす）探索の開始点の一方
-# @param ok [Integer] 条件を満たす（または満たさない）探索の開始点の他方
-# @yieldparam mid [Integer] 現在探索中の判定対象となる中央値
-# @yieldreturn [Boolean] `mid` が条件を満たしている（`ok` 側に属する）場合は `true`、満たしていない（`ng` 側に属する）場合は `false`
-# @return [Integer] 条件を満たす（または満たさない）境界の `ok` 側の値
-def bsearch(ng, ok)
-  while (ok - ng).abs > 1
-    mid = (ok + ng) / 2
-    yield(mid) ? ok = mid : ng = mid
+if dp[0].sum < K
+  puts "Eel"
+  exit
+end
+
+k = K
+ans = ""
+i = 0
+while i < N
+  j = 0
+  while j < 26 && k > dp[i][j]
+    k -= dp[i][j]
+    j += 1
   end
-  ok
+  c = ("a".ord + j).chr
+  ans << c
+  # c文字のみ取って終了の場合を引く
+  k -= 1
+  break if k <= 0
+  i = nex[i][j] + 1
 end
 
-# MOD = 998244353
-MOD = 10 ** 9 + 7
-INF = 1 << 60
+puts ans

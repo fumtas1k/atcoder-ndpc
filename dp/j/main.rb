@@ -1,37 +1,26 @@
-require "set"
-require "rbtree"
-require "ac-library-rb/dsu"
-require "ac-library-rb/segtree"
-require "ac-library-rb/priority_queue"
-require "ac-library-rb/fenwick_tree"
-include AcLibraryRb
+# J
+# 期待値DP
+# メモ化再帰
 
-# 指定された座標がグリッド（二次元配列）の範囲内に収まっているかを判定します。
-#
-# @param r [Integer] 行番号（Row index）
-# @param c [Integer] 列番号（Column index）
-# @param h [Integer] グリッドの高さ（総行数 / Height）
-# @param w [Integer] グリッドの幅（総列数 / Width）
-# @return [Boolean] 範囲内であれば `true`、範囲外であれば `false`
-def inside?(r, c, h, w)
-  0 <= r && r < h && 0 <= c && c < w
+N = gets.to_i
+A = gets.split.map(&:to_i)
+tally = A.tally
+tally.default = 0
+
+# DP[i][j][k] = 残り1皿がi枚、2皿がj枚、3皿がk枚のときの操作回数の期待値
+# DP[i][j][k] = (DP[i][j][k]*(N-i-j-k)/N + DP[i-1][j+1][k]*i/N + DP[i][j-1][k+1]*j/N + DP[i][j][k-1]*k/N) + 1
+# 変形すると
+# DP[i][j][k] = (DP[i-1][j+1][k] + DP[i][j-1][k+1] + DP[i][j][k-1] + N) / (i+j+k)
+DP = Array.new(N + 1) { Array.new(N + 1) { Array.new(N + 1) } }
+DP[0][0][0] = 0.0
+
+def dfs(i, j, k)
+  return DP[i][j][k] if DP[i][j][k]
+  exp = N.to_f
+  exp += dfs(i - 1, j, k) * i if i >= 1
+  exp += dfs(i + 1, j - 1, k) * j if j >= 1
+  exp += dfs(i, j + 1, k - 1) * k if k >= 1
+  DP[i][j][k] = exp / (i + j + k)
 end
 
-# 条件を満たす境界値を二分探索（バイナリサーチ）によって求めます。
-#
-# @param ng [Integer] 条件を満たさない（または満たす）探索の開始点の一方
-# @param ok [Integer] 条件を満たす（または満たさない）探索の開始点の他方
-# @yieldparam mid [Integer] 現在探索中の判定対象となる中央値
-# @yieldreturn [Boolean] `mid` が条件を満たしている（`ok` 側に属する）場合は `true`、満たしていない（`ng` 側に属する）場合は `false`
-# @return [Integer] 条件を満たす（または満たさない）境界の `ok` 側の値
-def bsearch(ng, ok)
-  while (ok - ng).abs > 1
-    mid = (ok + ng) / 2
-    yield(mid) ? ok = mid : ng = mid
-  end
-  ok
-end
-
-# MOD = 998244353
-MOD = 10 ** 9 + 7
-INF = 1 << 60
+puts dfs(tally[1], tally[2], tally[3])

@@ -1,37 +1,67 @@
-require "set"
-require "rbtree"
-require "ac-library-rb/dsu"
-require "ac-library-rb/segtree"
-require "ac-library-rb/priority_queue"
-require "ac-library-rb/fenwick_tree"
-include AcLibraryRb
+# Z
+# 理解を深める参考サイト: https://satanic0258.hatenablog.com/entry/2016/08/16/181331
 
-# 指定された座標がグリッド（二次元配列）の範囲内に収まっているかを判定します。
-#
-# @param r [Integer] 行番号（Row index）
-# @param c [Integer] 列番号（Column index）
-# @param h [Integer] グリッドの高さ（総行数 / Height）
-# @param w [Integer] グリッドの幅（総列数 / Width）
-# @return [Boolean] 範囲内であれば `true`、範囲外であれば `false`
-def inside?(r, c, h, w)
-  0 <= r && r < h && 0 <= c && c < w
-end
+class CHT
+  attr_accessor :lines
 
-# 条件を満たす境界値を二分探索（バイナリサーチ）によって求めます。
-#
-# @param ng [Integer] 条件を満たさない（または満たす）探索の開始点の一方
-# @param ok [Integer] 条件を満たす（または満たさない）探索の開始点の他方
-# @yieldparam mid [Integer] 現在探索中の判定対象となる中央値
-# @yieldreturn [Boolean] `mid` が条件を満たしている（`ok` 側に属する）場合は `true`、満たしていない（`ng` 側に属する）場合は `false`
-# @return [Integer] 条件を満たす（または満たさない）境界の `ok` 側の値
-def bsearch(ng, ok)
-  while (ok - ng).abs > 1
-    mid = (ok + ng) / 2
-    yield(mid) ? ok = mid : ng = mid
+  Line = Struct.new(:a, :b) {
+    def get_y(x)
+      a * x + b
+    end
+
+    def need?(l1, l2)
+      # 傾きがl1 > self > l2 で selfとl2の交点のx > selfとl1の交点のx の場合必要
+      # 最小値を取る直線は左から順に傾きが減少する
+      (a - l1.a) * (b - l2.b) > (l2.a - a) * (l1.b - b)
+    end
+  }
+
+  def initialize
+    @lines = []
   end
-  ok
+
+  def add(a, b)
+    l = Line.new(a, b)
+    # linesが2より大きくないと比較できない。
+    # 終端が必要なら抜くのをやめる。
+    until lines.size < 2 || lines[-1].need?(lines[-2], l)
+      lines.pop
+    end
+    lines << l
+  end
+
+  def get_min_y(x)
+    left = -1
+    right = lines.size - 1
+    while right - left > 1
+      m = (right + left) / 2
+      if lines[m].get_y(x) < lines[m + 1].get_y(x)
+        # mの方がyは小さい
+        right = m
+      else
+        # mの方がyは大きい
+        left = m
+      end
+    end
+    # 小さいyを知りたいのでrightを取る
+    lines[right].get_y(x)
+  end
+
 end
 
-# MOD = 998244353
-MOD = 10 ** 9 + 7
-INF = 1 << 60
+N, C = gets.split.map(&:to_i)
+# Hは単調増加
+H = gets.split.map(&:to_i)
+dp = [0] * N
+cht = CHT.new
+
+1.upto(N - 1) do |i|
+  # dp[i] = [dp[i], dp[j] + (H[i] - H[j]) ** 2 + C].min　を式展開
+  # H[i] ** 2 + C + (- 2 * H[i]H[j] + H[j] ** 2)(i - 1までの最小)
+  # a = - 2 * H[j], b = H[j] ** 2
+  # Hは単調増加なので、追加するaは常に最小となる
+  cht.add(-2 * H[i - 1], dp[i - 1] + H[i - 1] ** 2)
+  dp[i] = H[i] ** 2 + C + cht.get_min_y(H[i])
+end
+
+puts dp[-1]

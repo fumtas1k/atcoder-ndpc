@@ -1,37 +1,25 @@
-require "set"
-require "rbtree"
-require "ac-library-rb/dsu"
-require "ac-library-rb/segtree"
-require "ac-library-rb/priority_queue"
-require "ac-library-rb/fenwick_tree"
-include AcLibraryRb
+# L
+# 区間DP
+# バックトラック法
 
-# 指定された座標がグリッド（二次元配列）の範囲内に収まっているかを判定します。
-#
-# @param r [Integer] 行番号（Row index）
-# @param c [Integer] 列番号（Column index）
-# @param h [Integer] グリッドの高さ（総行数 / Height）
-# @param w [Integer] グリッドの幅（総列数 / Width）
-# @return [Boolean] 範囲内であれば `true`、範囲外であれば `false`
-def inside?(r, c, h, w)
-  0 <= r && r < h && 0 <= c && c < w
-end
+N = gets.to_i
+A = gets.split.map(&:to_i)
 
-# 条件を満たす境界値を二分探索（バイナリサーチ）によって求めます。
-#
-# @param ng [Integer] 条件を満たさない（または満たす）探索の開始点の一方
-# @param ok [Integer] 条件を満たす（または満たさない）探索の開始点の他方
-# @yieldparam mid [Integer] 現在探索中の判定対象となる中央値
-# @yieldreturn [Boolean] `mid` が条件を満たしている（`ok` 側に属する）場合は `true`、満たしていない（`ng` 側に属する）場合は `false`
-# @return [Integer] 条件を満たす（または満たさない）境界の `ok` 側の値
-def bsearch(ng, ok)
-  while (ok - ng).abs > 1
-    mid = (ok + ng) / 2
-    yield(mid) ? ok = mid : ng = mid
+# 最後から考える（バックトラック法）
+# dp[左端][右端] = (左端から右端までが残っている時の最適な) X - Y
+# 最後:偶数なら太郎君のターン
+dp = Array.new(N) { Array.new(N) }
+N.times { dp[_1][_1] = (N - 1).even? ? A[_1] : -A[_1] }
+
+(1 ... N).each do |dl|
+  (0 ... N - dl).each do |l|
+    r = l + dl
+    dp[l][r] = if dl % 2 == (N - 1) % 2
+      [dp[l + 1][r] + A[l], dp[l][r - 1] + A[r]].max
+    else
+      [dp[l + 1][r] - A[l], dp[l][r - 1] - A[r]].min
+    end
   end
-  ok
 end
 
-# MOD = 998244353
-MOD = 10 ** 9 + 7
-INF = 1 << 60
+puts dp[0][N - 1]

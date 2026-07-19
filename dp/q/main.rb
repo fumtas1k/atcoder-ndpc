@@ -1,37 +1,69 @@
-require "set"
-require "rbtree"
-require "ac-library-rb/dsu"
-require "ac-library-rb/segtree"
-require "ac-library-rb/priority_queue"
-require "ac-library-rb/fenwick_tree"
-include AcLibraryRb
+# Q
+# セグメント木
 
-# 指定された座標がグリッド（二次元配列）の範囲内に収まっているかを判定します。
-#
-# @param r [Integer] 行番号（Row index）
-# @param c [Integer] 列番号（Column index）
-# @param h [Integer] グリッドの高さ（総行数 / Height）
-# @param w [Integer] グリッドの幅（総列数 / Width）
-# @return [Boolean] 範囲内であれば `true`、範囲外であれば `false`
-def inside?(r, c, h, w)
-  0 <= r && r < h && 0 <= c && c < w
-end
+class SegmentTree
+  attr_accessor :tree, :leaf_size, :id_elm, :ope
 
-# 条件を満たす境界値を二分探索（バイナリサーチ）によって求めます。
-#
-# @param ng [Integer] 条件を満たさない（または満たす）探索の開始点の一方
-# @param ok [Integer] 条件を満たす（または満たさない）探索の開始点の他方
-# @yieldparam mid [Integer] 現在探索中の判定対象となる中央値
-# @yieldreturn [Boolean] `mid` が条件を満たしている（`ok` 側に属する）場合は `true`、満たしていない（`ng` 側に属する）場合は `false`
-# @return [Integer] 条件を満たす（または満たさない）境界の `ok` 側の値
-def bsearch(ng, ok)
-  while (ok - ng).abs > 1
-    mid = (ok + ng) / 2
-    yield(mid) ? ok = mid : ng = mid
+  def initialize(arr, id_elm, &block)
+    n = arr.size
+    @leaf_size = 1 << (n - 1).bit_length
+    @id_elm = id_elm
+    @ope = block
+    @tree = [id_elm] * (2 * leaf_size)
+    n.times { tree[leaf_size + _1] = arr[_1] }
+    (leaf_size - 1).downto(1) do |i|
+      tree[i] = ope.call(tree[i * 2], tree[i * 2 + 1])
+    end
   end
-  ok
+
+  # posは1から始まる
+  def update(pos, val)
+    u = leaf_size + pos
+    tree[u] = val
+    while u > 1
+      u >>= 1
+      tree[u] = ope.call(tree[2 * u], tree[2 * u + 1])
+    end
+  end
+
+  # 求めたい半開区間[l, r)
+  def query(l, r)
+    ans = id_elm
+    left = leaf_size + l
+    right = leaf_size + r
+    while right - left >= 1
+      if left[0] == 1
+        ans = ope.call(ans, tree[left])
+        left += 1
+      end
+      if right[0] == 1
+        ans = ope.call(ans, tree[right - 1])
+        right -= 1
+      end
+      left >>= 1
+      right >>= 1
+    end
+    ans
+  end
+
+  # 求めたい半開区間[l, r), 現在の半開区間[a, b), u = 現在地
+  # こちらはTLEする
+  def query2(l, r, a = 0, b = leaf_size, u = 1)
+    return id_elm if r <= a || b <= l
+    return tree[u] if l <= a && b <= r
+    mid = (a + b) / 2
+    left = query2(l, r, a, mid, 2 * u)
+    right = query2(l, r, mid, b, 2 * u + 1)
+    ope.call(left, right)
+  end
 end
 
-# MOD = 998244353
-MOD = 10 ** 9 + 7
-INF = 1 << 60
+N = gets.to_i
+H = gets.split.map(&:to_i)
+A = gets.split.map(&:to_i)
+
+seg_tree = SegmentTree.new([0] * (N + 1), 0) {|a, b| [a, b].max }
+H.zip(A).each do |h, a|
+  seg_tree.update(h, seg_tree.query(1, h) + a)
+end
+puts seg_tree.query(1, N + 1)
