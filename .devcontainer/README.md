@@ -9,7 +9,7 @@
 - Ruby 3.4.5、Node.js 22.18.0
 - `acc` 2.2.0 と `oj` 11.5.1
 - `ac-library-rb`、`rbtree`、`numo-narray`、`sorted_containers`、Ruby LSP
-- Claude Code CLI と GitHub CLI
+- Claude Code CLI、Codex CLI、GitHub CLI
 - `atcr`、`rtest`、`ropen` のシェルヘルパー
 
 Ruby の gem はイメージ内に導入されるため、問題コードはジャッジ環境と同様に
@@ -27,6 +27,12 @@ oj login --check https://atcoder.jp/
 ```
 
 認証情報は名前付き volume に保存されるため、コンテナをリビルドしても維持されます。
+
+## Codex へのログイン
+
+コンテナをリビルドした後、ターミナルで `codex` を実行し、表示される案内に従って
+ログインしてください。Codex の認証情報と設定は名前付き volume に保存されるため、
+コンテナをリビルドしても維持されます。
 
 ## 利用例
 

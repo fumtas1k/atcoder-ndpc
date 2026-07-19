@@ -27,6 +27,7 @@
     "source=atcoder-oj-data,target=/home/vscode/.local/share/online-judge-tools,type=volume",
     "source=atcoder-acc-config,target=/home/vscode/.config/atcoder-cli-nodejs,type=volume",
     "source=atcoder-claude,target=/home/vscode/.claude,type=volume",
+    "source=atcoder-codex,target=/home/vscode/.codex,type=volume",
     "source=atcoder-gh-config,target=/home/vscode/.config/gh,type=volume"
   ],
   "postCreateCommand": "bash .devcontainer/post-create.sh",
