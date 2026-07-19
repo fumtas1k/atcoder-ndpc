@@ -5,8 +5,13 @@ AtCoderの「Next generation Dynamic Programming Contest」用のRuby開発環�
 ## 環境
 
 - **Ruby**: 3.4.5 (Bundler)
-- **Python**: 3.13 (uv)
 - **Node.js**: 22.18+ (npm)
+
+## Dev Container
+
+VS Code の Dev Containers 拡張または GitHub Codespaces で開くと、Ruby、Node.js、
+`acc`、`oj`、競プロ用 gem を事前に構成した開発環境を利用できます。
+詳細は [.devcontainer/README.md](./.devcontainer/README.md) を参照してください。
 
 ## セットアップ
 
@@ -16,28 +21,26 @@ AtCoderの「Next generation Dynamic Programming Contest」用のRuby開発環�
 # Ruby ライブラリ
 bundle install
 
-# Python ツール (online-judge-tools)
-uv sync
-
 # Node.js ツール (atcoder-cli)
 npm install
 ```
 
 ## ツール
 
-リポジトリ内のツールを使用する場合は、`npx` または `uv run` を介して実行します。これらはローカルにインストールされているため、グローバルな環境を汚さずに利用可能です。
+ホスト環境では `npx` を介して `acc` を実行します。Dev Container 内では `acc` と `oj` がグローバルに導入されるため、そのまま実行できます。
 
 ```bash
 # atcoder-cli (acc) の使用
 npx acc <command>
 
-# online-judge-tools (oj) の使用
-uv run oj <command>
+# Dev Container 内で online-judge-tools (oj) を使用
+oj <command>
 ```
 
-## テストの実行
+## テストの実行（Dev Container）
 
-テストは、**各問題のディレクトリ（例: `ndpc/a/`）に移動してから**実行してください。`npm test` を使用すると、自動的に適切な環境でテストが実行されます。
+Dev Container 内では、**各問題のディレクトリ（例: `ndpc/a/`）に移動してから**
+`npm test` を実行してください。`oj` は Dev Container の feature で導入されています。
 
 ```bash
 # 問題ディレクトリへ移動
@@ -47,7 +50,7 @@ cd ndpc/a
 npm test
 
 # (補足) npmを経由せずに直接実行する場合
-uv run oj t -c "ruby main.rb" -d tests
+oj t -c "ruby main.rb" -d tests
 ```
 
 ## 問題一覧
