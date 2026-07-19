@@ -93,8 +93,8 @@ AtCoder の DP 系コンテストを Ruby で解いた解答置き場。アプ�
 利用可能な gem は `.devcontainer/devcontainer.json` の atcoder-ruby feature の `gems`
 オプションに固定: `ac-library-rb`, `rbtree`, `numo-narray`, `sorted_containers`（グローバル導入、`bundle exec` 不要）。
 自前でデータ構造を書く前に `ac-library-rb` に無いか確認する（`atcoder-ruby` スキル参照）。
-順序付き集合/多重集合が要る場合は `sorted_containers` gem（`SortedSet` / `SortedList`）が使える点も、
-スキルの `references/sorted-set.md`（自作の平方分割版）と合わせて検討する。
+順序付き集合/多重集合が要る場合、`sorted_containers` gem は入っているが**遅いので基本使わない**。
+スキルの `references/sorted-set.md` にある自作の平方分割版 / Fenwick+座圧版を使うのが house style。
 
 ## README.md の更新
 
