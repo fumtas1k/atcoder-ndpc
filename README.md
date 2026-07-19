@@ -75,6 +75,62 @@ uv run oj t -c "ruby main.rb" -d tests
 | S | [Two doors](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_s) | - | [未解答](./ndpc/s/main.rb) |
 | T | [Independent Set](https://atcoder.jp/contests/ndpc/tasks/ndpc2026_t) | - | [未解答](./ndpc/t/main.rb) |
 
+## Educational DP Contest
+
+| # | 問題 | アルゴリズム | 解答コード |
+| :--- | :--- | :--- | :--- |
+| A | [Frog 1](https://atcoder.jp/contests/dp/tasks/dp_a) | - | [解答済](./dp/a/main.rb) |
+| B | [Frog 2](https://atcoder.jp/contests/dp/tasks/dp_b) | - | [解答済](./dp/b/main.rb) |
+| C | [Vacation](https://atcoder.jp/contests/dp/tasks/dp_c) | - | [解答済](./dp/c/main.rb) |
+| D | [Knapsack 1](https://atcoder.jp/contests/dp/tasks/dp_d) | ナップサックDP | [解答済](./dp/d/main.rb) |
+| E | [Knapsack 2](https://atcoder.jp/contests/dp/tasks/dp_e) | ナップサックDP（価値を軸にするDP） | [解答済](./dp/e/main.rb) |
+| F | [LCS](https://atcoder.jp/contests/dp/tasks/dp_f) | 最長共通部分列（LCS）, DP復元 | [解答済](./dp/f/main.rb) |
+| G | [Longest Path](https://atcoder.jp/contests/dp/tasks/dp_g) | トポロジカルソート | [解答済](./dp/g/main.rb) |
+| H | [Grid 1](https://atcoder.jp/contests/dp/tasks/dp_h) | - | [解答済](./dp/h/main.rb) |
+| I | [Coins](https://atcoder.jp/contests/dp/tasks/dp_i) | 確率DP | [解答済](./dp/i/main.rb) |
+| J | [Sushi](https://atcoder.jp/contests/dp/tasks/dp_j) | 期待値DP, メモ化再帰 | [解答済](./dp/j/main.rb) |
+| K | [Stones](https://atcoder.jp/contests/dp/tasks/dp_k) | ゲーム必勝法 | [解答済](./dp/k/main.rb) |
+| L | [Deque](https://atcoder.jp/contests/dp/tasks/dp_l) | 区間DP, バックトラック法 | [解答済](./dp/l/main.rb) |
+| M | [Candies](https://atcoder.jp/contests/dp/tasks/dp_m) | 累積和 | [解答済](./dp/m/main.rb) |
+| N | [Slimes](https://atcoder.jp/contests/dp/tasks/dp_n) | 区間DP, 累積和 | [解答済](./dp/n/main.rb) |
+| O | [Matching](https://atcoder.jp/contests/dp/tasks/dp_o) | ビットDP | [解答済](./dp/o/main.rb) |
+| P | [Independent Set](https://atcoder.jp/contests/dp/tasks/dp_p) | 木DP | [解答済](./dp/p/main.rb) |
+| Q | [Flowers](https://atcoder.jp/contests/dp/tasks/dp_q) | セグメント木 | [解答済](./dp/q/main.rb) |
+| R | [Walk](https://atcoder.jp/contests/dp/tasks/dp_r) | - | [未解答](./dp/r/main.rb) |
+| S | [Digit Sum](https://atcoder.jp/contests/dp/tasks/dp_s) | 桁DP | [解答済](./dp/s/main.rb) |
+| T | [Permutation](https://atcoder.jp/contests/dp/tasks/dp_t) | 挿入DP | [解答済](./dp/t/main.rb) |
+| U | [Grouping](https://atcoder.jp/contests/dp/tasks/dp_u) | ビットDP | [解答済](./dp/u/main.rb) |
+| V | [Subtree](https://atcoder.jp/contests/dp/tasks/dp_v) | 全方位木DP, 累積積 | [解答済](./dp/v/main.rb) |
+| W | [Intervals](https://atcoder.jp/contests/dp/tasks/dp_w) | - | [未解答](./dp/w/main.rb) |
+| X | [Tower](https://atcoder.jp/contests/dp/tasks/dp_x) | - | [解答済](./dp/x/main.rb) |
+| Y | [Grid 2](https://atcoder.jp/contests/dp/tasks/dp_y) | 包除原理 | [解答済](./dp/y/main.rb) |
+| Z | [Frog 3](https://atcoder.jp/contests/dp/tasks/dp_z) | Convex Hull Trick | [解答済](./dp/z/main.rb) |
+
+## Typical DP Contest
+
+| # | 問題 | アルゴリズム | 解答コード |
+| :--- | :--- | :--- | :--- |
+| A | [コンテスト](https://atcoder.jp/contests/tdpc/tasks/tdpc_contest) | - | [解答済](./tdpc/a/main.rb) |
+| B | [ゲーム](https://atcoder.jp/contests/tdpc/tasks/tdpc_game) | バックトラック法 | [解答済](./tdpc/b/main.rb) |
+| C | [トーナメント](https://atcoder.jp/contests/tdpc/tasks/tdpc_tournament) | - | [未解答](./tdpc/c/main.rb) |
+| D | [サイコロ](https://atcoder.jp/contests/tdpc/tasks/tdpc_dice) | - | [解答済](./tdpc/d/main.rb) |
+| E | [数](https://atcoder.jp/contests/tdpc/tasks/tdpc_number) | 桁DP | [解答済](./tdpc/e/main.rb) |
+| F | [準急](https://atcoder.jp/contests/tdpc/tasks/tdpc_semiexp) | - | [解答済](./tdpc/f/main.rb) |
+| G | [辞書順](https://atcoder.jp/contests/tdpc/tasks/tdpc_lexicographical) | - | [解答済](./tdpc/g/main.rb) |
+| H | [ナップサック](https://atcoder.jp/contests/tdpc/tasks/tdpc_knapsack) | - | [未解答](./tdpc/h/main.rb) |
+| I | [イウィ](https://atcoder.jp/contests/tdpc/tasks/tdpc_iwi) | - | [未解答](./tdpc/i/main.rb) |
+| J | [ボール](https://atcoder.jp/contests/tdpc/tasks/tdpc_ball) | - | [未解答](./tdpc/j/main.rb) |
+| K | [ターゲット](https://atcoder.jp/contests/tdpc/tasks/tdpc_target) | - | [未解答](./tdpc/k/main.rb) |
+| L | [猫](https://atcoder.jp/contests/tdpc/tasks/tdpc_cat) | - | [未解答](./tdpc/l/main.rb) |
+| M | [ゲーム2](https://atcoder.jp/contests/tdpc/tasks/tdpc_game2) | - | [未解答](./tdpc/m/main.rb) |
+| N | [木](https://atcoder.jp/contests/tdpc/tasks/tdpc_tree) | - | [未解答](./tdpc/n/main.rb) |
+| O | [文字列](https://atcoder.jp/contests/tdpc/tasks/tdpc_string) | - | [未解答](./tdpc/o/main.rb) |
+| P | [畳](https://atcoder.jp/contests/tdpc/tasks/tdpc_tiling) | - | [未解答](./tdpc/p/main.rb) |
+| Q | [グラフ](https://atcoder.jp/contests/tdpc/tasks/tdpc_graph) | - | [未解答](./tdpc/q/main.rb) |
+| R | [派閥](https://atcoder.jp/contests/tdpc/tasks/tdpc_group) | - | [未解答](./tdpc/r/main.rb) |
+| S | [桁](https://atcoder.jp/contests/tdpc/tasks/tdpc_digits) | - | [未解答](./tdpc/s/main.rb) |
+| T | [フィボナッチ](https://atcoder.jp/contests/tdpc/tasks/tdpc_fibonacci) | - | [未解答](./tdpc/t/main.rb) |
+
 ## ライブラリ
 
 以下の gem が導入されています。
